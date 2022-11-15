@@ -1,0 +1,179 @@
+/*Here I am establishing variables for colors I use very often, int he case i change the color I don't have to go back and 
+adjust all instances of it, I just have to edit it here*/
+:root {
+    --border-color: #2c1161;
+    --light-font: #fff;
+    --dark-font: black;
+    --blue-box: lightblue;
+}
+
+/*Wildcard, states that everything will have no padding/margins (unless specified)
+the font family, and that it is a border box sizing, i.e. the border is included in an images height/width*/
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-sizing: border-box;
+}
+
+/*Here I establish that the header will be in flex and that the elements within it will be in columns
+the background image is also estblihed*/
+header,
+footer {
+    display: flex;
+    flex-direction: column;
+    height: 20vh;
+    width: 100%;
+    background-image: url("../Images/background-image.png");
+    background-position: center;
+    background-size: cover;
+}
+
+/*Here we are stating that the background is a certain color*/
+body {
+    background-color: aliceblue;
+}
+
+/*All h1 headings will be aligned in the center of their respective field,
+be white in color and the font size will change to always be 3% of the total height*/
+h1 {
+    align-self: center;
+    color: var(--light-font);
+    font-size: calc(20px + 3vw);
+}
+
+/*The nav bar will wrap incase of overflow, and establishing padding */
+nav {
+    margin-top: 2vh;
+    padding: .2vh;
+    flex-wrap: wrap;
+    align-self: center;
+}
+
+/*Establish that I want it to wrap when it overflows, the colors, the decoration etc.
+I have a min font size and i want it to change based off the viewport width*/
+nav a {
+    font-size: calc(7px + 1.5vw);
+    padding: 10px;
+    background-color: var(--blue-box);
+    border: 9px solid var(--border-color);
+    text-decoration: none;
+    color: var(--dark-font);
+}
+/*Here i want to headers to all have the same appearance, to be centered in their sections
+to be black in color and */
+.headers {
+    text-decoration: underline 5px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+    font-size: calc(15px + 2vh);
+    padding-bottom: 1vh;
+    color: var(--dark-font);
+}
+/*formatting the bio*/
+.bio-format {
+    margin-top: 1px;
+    display: flex;
+    width: 100%;
+    border: 9px solid var(--border-color);
+    background-color: var(--blue-box);
+    margin-bottom: 10px;
+}
+
+/*give the bio section some padding*/
+.bio {
+    display: flex;
+    padding: 10px;
+}
+/*put the figure container in flex*/
+.bio figure {
+    display: flex;
+}
+/*Image width will take up 100% of the figure container and also it will be in the center, vertically*/
+.bio img {
+    max-width: 100%;
+    align-self: center;
+}
+/*give the text of th ebio a little padding, and let the font size adjust based on the window size*/
+.bio p {
+    max-width: 100%;
+    padding: 1%;
+    justify-content: center;
+    font-size: calc(9px + 1vw);
+}
+
+/*All Project titles are going to have the same format*/
+.project-titles {
+    background-color: var(--border-color);
+    max-width: fit-content;
+    text-decoration: none;
+    color:var(--light-font);
+    max-width: fit-content;
+}
+/*Formatting the work section*/
+.work-format {
+    display: flex;
+    width: 100%;
+}
+/*The image will take up all of the width of the page, and have the same border everything else has*/
+.prior-work img{
+    max-width: 100%;
+    border: 9px solid var(--border-color);
+}
+/*Establish the position is relative so the absolute placement of the text is possible*/
+#prework {
+    position: relative;
+}
+/*We specifically want the font here to be larger, so it adjusts to the larger image*/
+#prework h3 {
+    padding: 15px;
+
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: calc(12px + 1.5vh);
+}
+/*We want everyhting in this large container to be in flex display and to be spaced evenly*/
+.small-class {
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+/*Setting the flex shrink and basis here
+other work in the container for the images*/
+.other-work {
+    flex: 1 1 25%;
+    position: relative;
+    text-align: center;
+    width: fit-content;
+}
+/*Lets give the allow the figure to take up all the space in the otherwork section
+and give it some padding, so that there is so space between them*/
+.other-work figure {
+    max-width: 100%;
+    padding: 3px;
+}
+
+/*Here I am calculating the size of the font, to adapt based off the screen width
+it is also placing the text relative to where the images is, so it will always be in the bottom left corner*/
+.other-work .project-titles {
+    font-size: calc(8px + 1vw);
+    /*font-size: calc(10px + 1vh);*/
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    padding: 0.5vw;
+}
+/*Adding some media queries so that The heading and footer are not too big*/
+@media screen and (max-width: 1000px){
+    header,
+    footer{height: 12vh};
+}
+
+@media screen and (max-width:500px){
+    header,
+    footer{height:10vh};
+    .other-work .project-titles{
+        padding: 1px;
+    }
+}
