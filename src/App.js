@@ -2,6 +2,7 @@
 // import './App.css';
 import React from "react";
 import ProjectList from './components/ProjectsList'
+import Nav from './components/Nav'
 const projects = [
   {
     id: 1,
@@ -22,15 +23,15 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src='' className="App-logo" alt="logo" />
-        <p>
-          hello        </p>
+        <Nav />
       </header>
       <div>
         < ProjectList projects={projects} />
       </div>
     </div >
   );
-}
+};
+
+
 
 export default App;
