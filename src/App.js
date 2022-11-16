@@ -2,8 +2,11 @@
 // import './App.css';
 import React from "react";
 import ProjectList from './components/ProjectsList'
-// import Nav from './components/Nav'
+import About from './components/About'
+import Contact from './components/Contact'
 
+// import Nav from './components/Nav'
+//update this because the tutortial used 5.0 we are on 6.4
 import {
   BrowserRouter as Router,
   Switch,
@@ -34,55 +37,54 @@ const projects = [
 
   }
 ]
+
+const styles = {
+  list: {
+    listStyle: "none",
+  },
+  links: {
+    textDecoration: "none"
+  },
+  ul: {
+    marginLeft: "auto!important"
+  }
+}
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <Router>
-          <div>
-            <nav>
-              <ul>
-                <li>
-                  <Link to="/">Home</Link>
+          <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <a className="navbar-brand" href="/">Charlee Gordon</a>
+            <div id="navbarNav" style={{ marginLeft: "auto" }}>
+              <ul className="navbar-nav">
+                <li className="nav-item active">
+                  <a className="nav-link" href="/about">About</a>
                 </li>
-                <li>
-                  <Link to="/projects">projects</Link>
+                <li className="nav-item active">
+                  <a className="nav-link" href="/projects">Projects</a>
                 </li>
-                <li>
-                  <Link to="/contact">Contact Me</Link>
+                <li className="nav-item">
+                  <a className="nav-link" href="resume">Resume</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="/contact">Contact Me</a>
                 </li>
               </ul>
-            </nav>
-            {/* <Switch>
-              <Route path="/about">
-                <About />
-              </Route>
-              <Route path="/users">
-                <Users />
-              </Route>
-              <Route path="/">
-                <Home />
-              </Route>
-            </Switch> */}
-          </div>
+            </div>
+          </nav>
+
         </Router>
       </header>
       <div>
+        <About />
+      </div>
+      <div>
         <ProjectList projects={projects}></ProjectList>
       </div>
+      <Contact></Contact>
     </div >
   );
 };
-// function Home() {
-//   return <h2>Home</h2>;
-// }
-
-// function About() {
-//   return <h2>About</h2>;
-// }
-
-// function Users() {
-//   return <h2>Users</h2>;
-// }
 
 export default App;
