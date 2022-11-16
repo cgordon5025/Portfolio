@@ -5,7 +5,7 @@ function ProjectList(props) {
         <div className='MainContainer'>
             {props.projects.map((project) => {
                 return (
-                    <div className="card" key={project.id}>
+                    <div className="card" style={{width: "18rem"}} key={project.id}>
                         <img src={`${project.imgURL}`} className="card-img-top" alt="img representing project"></img>
                         <div className="card-body">
                             <h5 className="card-title">{project.title}</h5>
