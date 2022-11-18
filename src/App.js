@@ -1,18 +1,13 @@
 // import logo from './logo.svg';
 // import './App.css';
 import React from "react";
-import ProjectList from './components/ProjectsList'
-import About from './components/About'
-import Contact from './components/Contact'
-import Resume from './components/Resume'
-// import Nav from './components/Nav'
-//update this because the tutortial used 5.0 we are on 6.4
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { Link, BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Nav from "./pages/Nav";
+import About from "./pages/About";
+import ProjectList from "./pages/ProjectList";
+import Resume from "./pages/Resume";
+import Home from "./pages/Home";
 const projects = [
   {
     id: 1,
@@ -78,8 +73,6 @@ const resume = {
   ]
 }
 
-
-
 const styles = {
   list: {
     listStyle: "none",
@@ -91,46 +84,34 @@ const styles = {
     marginLeft: "auto!important"
   }
 }
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Router>
-          <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <a className="navbar-brand" href="/">Charlee Gordon</a>
-            <div id="navbarNav" style={{ marginLeft: "auto" }}>
-              <ul className="navbar-nav">
-                <li className="nav-item active">
-                  <a className="nav-link" href="/about">About</a>
-                </li>
-                <li className="nav-item active">
-                  <a className="nav-link" href="/projects">Projects</a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="resume">Resume</a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="/contact">Contact Me</a>
-                </li>
-              </ul>
-            </div>
-          </nav>
-
-        </Router>
-      </header>
-      <div>
-        <About />
-      </div>
-      <div>
-        <ProjectList projects={projects}></ProjectList>
-      </div>
-      <div>
-        <Resume resume={resume}></Resume>
-      </div>
-      <Contact></Contact>
-
-    </div>
+    <>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <Link className="navbar-brand" to="/">Home</Link>
+        <div id="navbarNav" style={{ marginLeft: "auto" }}>
+          <ul className="navbar-nav">
+            <li className="nav-item active">
+              <Link className="nav-link" to="/about">About</Link>
+            </li>
+            <li className="nav-item active">
+              <Link className="nav-link" to="/project">Projects</Link>
+            </li>
+            <li className="nav-item active">
+              <Link className="nav-link" to="/resume">Resume</Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <Routes>
+        <Route index element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route path="project" element={<ProjectList projects={projects} />} />
+        <Route path="resume" element={<Resume resume={resume} />} />
+      </Routes>
+    </>
   );
-};
+}
 
 export default App;
