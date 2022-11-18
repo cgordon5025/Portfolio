@@ -3,11 +3,11 @@
 import React from "react";
 import { Link, BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Nav from "./pages/Nav";
 import About from "./pages/About";
 import ProjectList from "./pages/ProjectList";
 import Resume from "./pages/Resume";
 import Home from "./pages/Home";
+import Contact from "./pages/Contact";
 const projects = [
   {
     id: 1,
@@ -82,34 +82,43 @@ const styles = {
   },
   ul: {
     marginLeft: "auto!important"
+  },
+  headFoot: {
+    // backgroundColor: "#80ABCF"
+    backgroundColor: "lightblue"
   }
 }
 
 function App() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <Link className="navbar-brand" to="/">Home</Link>
-        <div id="navbarNav" style={{ marginLeft: "auto" }}>
-          <ul className="navbar-nav">
-            <li className="nav-item active">
-              <Link className="nav-link" to="/about">About</Link>
-            </li>
-            <li className="nav-item active">
-              <Link className="nav-link" to="/project">Projects</Link>
-            </li>
-            <li className="nav-item active">
-              <Link className="nav-link" to="/resume">Resume</Link>
-            </li>
-          </ul>
-        </div>
-      </nav>
+      <header style={styles.headFoot}>
+        <nav className="navbar navbar-expand-lg " >
+          <Link className="navbar-brand" to="/">Charlee Gordon</Link>
+          <div id="navbarNav" style={{ marginLeft: "auto" }}>
+            <ul className="navbar-nav">
+              <li className="nav-item active">
+                <Link className="nav-link" to="/about">About</Link>
+              </li>
+              <li className="nav-item active">
+                <Link className="nav-link" to="/project">Projects</Link>
+              </li>
+              <li className="nav-item active">
+                <Link className="nav-link" to="/resume">Resume</Link>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
       <Routes>
-        <Route index element={<Home />} />
+        <Route path='/' index element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="project" element={<ProjectList projects={projects} />} />
         <Route path="resume" element={<Resume resume={resume} />} />
       </Routes>
+      <footer style={styles.headFoot}>
+        <Contact />
+      </footer>
     </>
   );
 }

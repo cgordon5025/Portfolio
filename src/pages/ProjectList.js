@@ -1,4 +1,6 @@
-import React from 'react';
+import React from 'react'
+import projectBG from "../images/project-bg.png"
+
 const styles = {
     skill: {
         border: "1px solid black",
@@ -10,14 +12,24 @@ const styles = {
         justifyContent: "space-evenly",
         alignItems: "flex-end",
         flexWrap: "wrap"
+    },
+    main: {
+        display: "flex",
+        justifyContent: "space-evenly",
+        flexWrap: "wrap",
+        padding: "5%",
+        backgroundImage: `url(${projectBG})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no repeat",
+        backgroundPosition: "center"
     }
 }
 function ProjectList(props) {
     return (
-        <div className='MainContainer' style={{ display: "flex", justifyContent: "space-evenly", flexWrap: "wrap" }}>
+        <div className='MainContainer' style={styles.main}>
             {props.projects.map((project) => {
                 return (
-                    <div className="card" style={{ width: "18rem", height: "fit-content" }} key={project.id}>
+                    <div className="card" style={{ width: "18rem", height: "fit-content", backgroundColor: "lightblue" }} key={project.id}>
                         <a href={`${project.link}`}>
                             <img src={`${project.imgURL}`} className="card-img-top" alt="img representing project"></img>
                         </a>
