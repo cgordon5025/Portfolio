@@ -8,6 +8,8 @@ N/A
 ## Usage
 Visitors can view read my short bio, view my previous projects that I showcase, and look at my resume.
 
+![mock-up](mock-up.png)
+
 ## Credits
 https://www.youtube.com/watch?v=Ul3y1LXxzdU&ab_channel=WebDevSimplified
 
