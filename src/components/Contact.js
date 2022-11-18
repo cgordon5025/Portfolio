@@ -6,12 +6,12 @@ function Contact() {
         <div style={{ display: "flex", justifyContent: "center" }}>
             <SocialIcon url="https://github.com/cgordon5025" />
             <SocialIcon url="https://linkedin.com/in/charlee-gordon/" />
-            <a href="mailto:cgordon5025@gmail.com">
+            <a href="mailto:cgordon5025@gmail.com" >
                 <SocialIcon network="email" />
             </a>
 
 
-        </div>
+        </div >
     )
 }
 
