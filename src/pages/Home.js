@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { componentDidMount, Component, useEffect, useState } from 'react'
 // import img from '../images/bio-image.png'
 import bgImg from "../images/home-background-image.png"
 const styles = {
@@ -14,16 +14,39 @@ const styles = {
     }
 
 }
-function Home() {
-    return (
+var i = 0;
+var txt = " Hey! I'm Charlee";
+var speed = 70;
 
-        <div className="bgContainer" style={styles.background}>
+
+function Home() {
+    var i = 0
+    function typewriter() {
+        if (i < txt.length) {
+            // setIntro(intro + txt.charAt(i))
+            document.getElementById('typing').innerHTML += txt.charAt(i)
+            i++;
+            setTimeout(typewriter, speed);
+        }
+    }
+
+    useEffect(() => {
+        if (i < txt.length) {
+            document.getElementById('typing').innerHTML += txt.charAt(i)
+            i++;
+            setTimeout(typewriter, speed);
+        }
+    })
+
+    return (
+        < div className="bgContainer" style={styles.background} >
             <div style={{ display: "flex", justifyContent: "space-evenly", alignItems: "center", padding: "5%", opacity: "1" }}>
                 <img src={require('../images/bio-image.png')} style={styles.pfp}></img>
-                <h2 style={{ backgroundColor: "lightskyblue", color: "black" }}>Hey I'm Charlee</h2>
+
+                <h2 id="typing" style={{ backgroundColor: "lightskyblue", color: "black" }}></h2>
             </div>
 
-        </div>
+        </div >
     )
 }
 

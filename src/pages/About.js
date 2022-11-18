@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import aboutBg from '../images/about-bg-img.png'
 const styles = {
     bg: {
@@ -15,6 +15,7 @@ const styles = {
     }
 }
 function About() {
+
     return (
         <div style={styles.bg}>
             <div style={styles.text}>

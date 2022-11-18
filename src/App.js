@@ -8,6 +8,7 @@ import ProjectList from "./pages/ProjectList";
 import Resume from "./pages/Resume";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
+import { type } from "@testing-library/user-event/dist/type";
 const projects = [
   {
     id: 1,
@@ -94,27 +95,29 @@ function App() {
     <>
       <header style={styles.headFoot}>
         <nav className="navbar navbar-expand-lg " >
-          <Link className="navbar-brand" to="/">Charlee Gordon</Link>
+          <Link className="navbar-brand" to="/Portfolio/">Charlee Gordon</Link>
           <div id="navbarNav" style={{ marginLeft: "auto" }}>
             <ul className="navbar-nav">
-              <li className="nav-item active">
-                <Link className="nav-link" to="/about">About</Link>
+              <li className="nav-item ">
+                <Link className="nav-link" to="/Portfolio/about">About</Link>
               </li>
-              <li className="nav-item active">
-                <Link className="nav-link" to="/project">Projects</Link>
+              <li className="nav-item ">
+                <Link className="nav-link" to="/Portfolio/project">Projects</Link>
               </li>
-              <li className="nav-item active">
-                <Link className="nav-link" to="/resume">Resume</Link>
+              <li className="nav-item ">
+                <Link className="nav-link" to="/Portfolio/resume">Resume</Link>
               </li>
             </ul>
           </div>
         </nav>
       </header>
-      <Routes>
-        <Route path='/' index element={<Home />} />
-        <Route path="about" element={<About />} />
-        <Route path="project" element={<ProjectList projects={projects} />} />
-        <Route path="resume" element={<Resume resume={resume} />} />
+      <Routes >
+        <Route path='/Portfolio/' index element={<Home />} />
+
+        {/* <Route path='/Portfolio/' index element={<Home i={typeMsg.i} txt={typeMsg.txt} speed={typeMsg.speed} />} /> */}
+        <Route path="/Portfolio/about" element={<About />} />
+        <Route path="/Portfolio/project" element={<ProjectList projects={projects} />} />
+        <Route path="/Portfolio/resume" element={<Resume resume={resume} />} />
       </Routes>
       <footer style={styles.headFoot}>
         <Contact />

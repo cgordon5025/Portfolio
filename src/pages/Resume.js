@@ -1,4 +1,5 @@
 import React from 'react';
+import resBg from '../images/resume-bg.png'
 const styles = {
     borders: {
         borderBottom: "2px solid black"
@@ -9,13 +10,20 @@ const styles = {
         display: "flex",
         justifyContent: "space-between",
         lineHeight: "1"
+    },
+    resumeBg: {
+        padding: "1%",
+        backgroundImage: `url(${resBg})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no repeat",
+        backgroundPosition: "center"
     }
 
 }
 
 function Resume(props) {
     return (
-        <div style={{ padding: "1%" }}>
+        <div style={styles.resumeBg}>
             <div style={styles.borders}>
                 <h2>Experience</h2>
                 {props.resume.exp.map((job) => {
