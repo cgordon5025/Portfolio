@@ -17,4 +17,4 @@ https://www.youtube.com/watch?v=Ul3y1LXxzdU&ab_channel=WebDevSimplified
 N/A
 
 ## Link to Deployed Page
-[Link to Site](https://cgordon5025.github,io/Portfolio)
+[Link to Site](https://cgordon5025.github.io/Portfolio)
