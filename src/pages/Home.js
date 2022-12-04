@@ -21,6 +21,7 @@ var speed = 70;
 
 function Home() {
     var i = 0
+    // const [intro, setIntro] =useState()
     function typewriter() {
         if (i < txt.length) {
             // setIntro(intro + txt.charAt(i))
@@ -31,6 +32,7 @@ function Home() {
     }
 
     useEffect(() => {
+        // typewriter()
         if (i < txt.length) {
             document.getElementById('typing').innerHTML += txt.charAt(i)
             i++;
